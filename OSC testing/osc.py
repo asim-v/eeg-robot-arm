@@ -9,7 +9,7 @@ import math
 from pythonosc import dispatcher
 from pythonosc import osc_server
 
-PORT_NUMBER = 8080
+PORT_NUMBER = 93
 IP_DEFAULT = "127.0.0.1"
 
 def filter_handler(address,*args):
@@ -28,10 +28,7 @@ if __name__ == "__main__":
 
   #=== Mental Commands
   dispatcher.map("/com/neutral", filter_handler)
-  dispatcher.map("/com/left", filter_handler)
-  dispatcher.map("/com/right", filter_handler)
-  dispatcher.map("/com/lift", filter_handler)
-
+  dispatcher.map("/com/push",filter_handler)
 
 
   server = osc_server.ThreadingOSCUDPServer(

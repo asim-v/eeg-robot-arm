@@ -33,7 +33,7 @@ void loop() {
   while (!Serial.available());
 
   //This line converts the input string into char
-  char data_as_char[30];
+  char data_as_char[50];
   data.toCharArray(data_as_char, 50);
   data = Serial.readStringUntil('\n');
 
@@ -46,6 +46,7 @@ void loop() {
   
     //This line converts char into a set of integers
     if (sscanf(data_as_char , "%d,%d,%d,%d,%d,%d", &x, &y, &z, &m, &n, &p) == 6) {
+      setServo(7, 135-y);
       setServo(10, x);
       setServo(11, y);
       setServo(12, z);

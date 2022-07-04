@@ -5,7 +5,7 @@ import time
 from timepressedbutton import *
 
 #open arduinoial port
-arduino = serial.Serial(port='COM3', baudrate=115200, timeout=.1)
+arduino = serial.Serial(port='COM4', baudrate=115200, timeout=.005)
 print("Connected succesfully at: ",arduino.name)  
 
 # root window
@@ -20,7 +20,8 @@ root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=3)
 
 
-DEFAULT_PARAMS = [60,135,135,0,0,20]
+# DEFAULT_PARAMS = [60,135,135,0,0,20]
+DEFAULT_PARAMS = [60,50,0,0,0,20]
 
 
 def get_value_of(slider):
@@ -106,7 +107,7 @@ second_slider_label.grid(column=0,row=1,sticky='w')
 second_slider = ttk.Scale(
     root,
     from_=0,
-    to=135,
+    to=100,
     orient='horizontal',  # vertical
     command=second_slider_changed,
     variable=second_slider
